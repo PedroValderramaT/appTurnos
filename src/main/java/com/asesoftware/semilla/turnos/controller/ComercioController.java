@@ -52,4 +52,10 @@ public class ComercioController {
 		return comercioService.updateComercio(entity);
 	} 
 	
+	//eliminar comercio
+	@GetMapping(path = "/delete/{id}")
+	public void deleteComercio(@PathVariable Integer id) {
+		comercioService.deleteComercio(id);
+	}
+	
 }

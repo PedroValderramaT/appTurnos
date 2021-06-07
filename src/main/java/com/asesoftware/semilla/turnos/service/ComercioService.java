@@ -49,7 +49,7 @@ public class ComercioService implements IComercioService{
 	@Override
 	public void deleteComercio(Integer id) {
 		
-		
+		comercioRepository.deleteById(id);
 	}
 
 }
