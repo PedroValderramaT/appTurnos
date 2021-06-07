@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.asesoftware.semilla.turnos.entity.ComercioEntity;
@@ -28,6 +29,12 @@ public class ComercioController {
 	//listar comercio por id
 	@GetMapping(path = "/comercio/{id}")
 	public ComercioEntity getComercioById(@PathVariable Integer id) {
+		return comercioService.getComercioById(id);
+	}
+	
+	//mostrar por parametro
+	@GetMapping(path = "/comercio")
+	public ComercioEntity getComercioParametroById(@RequestParam Integer id) {
 		return comercioService.getComercioById(id);
 	}
 	
