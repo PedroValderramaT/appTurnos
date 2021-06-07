@@ -34,7 +34,11 @@ public class ServicioService implements IServicioService{
 	@Override
 	public ServiciosEntity createServicio(ServiciosEntity serviciosEntity) {
 		// TODO Auto-generated method stub
-		return null;
+		try {
+			return servicioRepository.save(serviciosEntity);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
