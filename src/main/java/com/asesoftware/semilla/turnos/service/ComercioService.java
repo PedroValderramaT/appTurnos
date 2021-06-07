@@ -33,7 +33,7 @@ public class ComercioService implements IComercioService{
 	@Override
 	public ComercioEntity createComercio(ComercioEntity comercioEntity) {
 
-		return null;
+		return comercioRepository.save(comercioEntity);
 	}
 
 	@Override
