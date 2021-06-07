@@ -33,7 +33,6 @@ public class ServicioService implements IServicioService{
 	
 	@Override
 	public ServiciosEntity createServicio(ServiciosEntity serviciosEntity) {
-		// TODO Auto-generated method stub
 		try {
 			return servicioRepository.save(serviciosEntity);
 		} catch (Exception e) {
@@ -43,8 +42,7 @@ public class ServicioService implements IServicioService{
 
 	@Override
 	public ServiciosEntity updateServicio(ServiciosEntity serviciosEntity) {
-		// TODO Auto-generated method stub
-		return null;
+		return servicioRepository.save(serviciosEntity);
 	}
 
 	@Override
