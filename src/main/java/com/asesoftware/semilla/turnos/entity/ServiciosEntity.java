@@ -1,34 +1,36 @@
 package com.asesoftware.semilla.turnos.entity;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "comercios")
-public class ComercioEntity {
+@Table(name = "servicios")
+public class ServiciosEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 	
-	@Column(name = "nom_comercio")
-	private String nombre_comercio;	
+	@Column(name = "nom_servicio")
+	private String nombreServicio;
 	
-	@Column(name = "aforo_maximo")
-	private Integer aforo_max;
+	@Column(name = "hora_apertura")
+	private String horaApertura;
 	
-	@OneToMany(mappedBy = "idComercio")
-	private List<ServiciosEntity> servicios;
+	@Column(name = "hora_cierre")
+	private String horaCierre;
 	
+	@Column(name = "id_comercio")
+	private Integer idComercio;
+	
+	@Column(name = "duracion")
+	private Integer duracionServicio;
 }
