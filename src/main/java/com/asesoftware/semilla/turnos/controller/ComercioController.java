@@ -34,17 +34,22 @@ public class ComercioController {
 		return comercioService.getComercioById(id);
 	}
 	
-	//mostrar por parametro
+	//mostrar por parametro id
 	@GetMapping(path = "/comercio")
 	public ComercioEntity getComercioParametroById(@RequestParam Integer id) {
 		return comercioService.getComercioById(id);
 	}
 	
 	//crear comercio
-	
 	@PostMapping(path = "/crear", consumes = "application/json", produces = "application/json")
 	public ComercioEntity createComercio(@RequestBody ComercioEntity entity) {
 		return comercioService.createComercio(entity);
+	} 
+	
+	//editar comercio
+	@PostMapping(path = "/editar", consumes = "application/json", produces = "application/json")
+	public ComercioEntity updateComercio(@RequestBody ComercioEntity entity) {
+		return comercioService.updateComercio(entity);
 	} 
 	
 }

@@ -32,14 +32,18 @@ public class ComercioService implements IComercioService{
 
 	@Override
 	public ComercioEntity createComercio(ComercioEntity comercioEntity) {
-
-		return comercioRepository.save(comercioEntity);
+		try {
+			return comercioRepository.save(comercioEntity);
+		}catch(Exception e) {
+			return null;
+		}
+		
 	}
 
 	@Override
 	public ComercioEntity updateComercio(ComercioEntity comercioEntity) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return comercioRepository.save(comercioEntity);
 	}
 
 	@Override
