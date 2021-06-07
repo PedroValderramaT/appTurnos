@@ -47,7 +47,7 @@ public class ServicioService implements IServicioService{
 
 	@Override
 	public void deleteServicio(Integer id) {
-		// TODO Auto-generated method stub
+		servicioRepository.deleteById(id);
 		
 	}
 

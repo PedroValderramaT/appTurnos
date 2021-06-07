@@ -32,15 +32,24 @@ public class ServicioController {
 		return servicioService.getServicioById(id);
 	}
 	
+	//creacion servicio
 	@PostMapping(path = "/crear", consumes = "application/json", produces = "application/json" )
 	public ServiciosEntity createServicio(@RequestBody ServiciosEntity entity) {
 		return servicioService.createServicio(entity);
 	}
 	
+	//editar servicio
 	@PostMapping(path = "/editar", consumes = "application/json", produces = "application/json" )
 	public ServiciosEntity updateServicio(@RequestBody ServiciosEntity entity) {
 		return servicioService.updateServicio(entity);
 	}
+	
+	//eliminar servicio
+	@GetMapping(path = "/delete/{id}")
+	public void deleteServicio(@PathVariable Integer id) {
+		servicioService.deleteServicio(id);
+	}
+	
 	
 	
 	
