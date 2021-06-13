@@ -12,12 +12,14 @@ public interface IServicioService {
 
 	public ServiciosEntity getServicioById(Integer id);
 	
-	public ServiciosEntity createServicio(ServiciosEntity serviciosEntity);
+	//public ServiciosEntity createServicio(ServiciosEntity serviciosEntity);
 	
 	public ServiciosEntity updateServicio(ServiciosEntity serviciosEntity);
 	
 	public void deleteServicio(Integer id);
 		
 	public ServiciosDTO buscarPorId(Integer id);
+	
+	public ServiciosDTO createServicio(ServiciosDTO serviciosDTO);
 
 }

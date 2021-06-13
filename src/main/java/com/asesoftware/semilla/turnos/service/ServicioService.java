@@ -36,13 +36,21 @@ public class ServicioService implements IServicioService{
 		}
 	}
 	
+	//@Override
+	//public ServiciosEntity createServicio(ServiciosEntity serviciosEntity) {
+	//		try {
+	//		return servicioRepository.save(serviciosEntity);
+	//	} catch (Exception e) {
+	//		return null;
+	//	}
+	//}
+	
 	@Override
-	public ServiciosEntity createServicio(ServiciosEntity serviciosEntity) {
-			try {
-			return servicioRepository.save(serviciosEntity);
-		} catch (Exception e) {
-			return null;
-		}
+	public ServiciosDTO createServicio(ServiciosDTO serviciosDTO) {
+		
+		ServiciosEntity serviciosEntity = mapperServicio.dtoToEntity(serviciosDTO); 
+	
+		return mapperServicio.entityToDTO(servicioRepository.save(serviciosEntity));
 	}
 	
 	
