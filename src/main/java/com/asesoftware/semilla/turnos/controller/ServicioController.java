@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.asesoftware.semilla.turnos.dto.ServiciosDTO;
 import com.asesoftware.semilla.turnos.entity.ServiciosEntity;
 import com.asesoftware.semilla.turnos.service.IServicioService;
 
@@ -48,6 +49,12 @@ public class ServicioController {
 	@GetMapping(path = "/delete/{id}")
 	public void deleteServicio(@PathVariable Integer id) {
 		servicioService.deleteServicio(id);
+	}
+	
+	//buscar servicio por id consultando el DTO
+	@GetMapping(path = "/{id}")
+	public ServiciosDTO buscarPorId(@PathVariable Integer id) {
+		return servicioService.buscarPorId(id);
 	}
 	
 	
