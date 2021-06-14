@@ -22,9 +22,14 @@ public class ComercioService implements IComercioService{
 	@Autowired
 	private IComercioMapper mapperComercio;
 
+	//@Override
+	//public List<ComercioEntity> getAll() {
+	//	return comercioRepository.findAll();
+	//}
+	
 	@Override
-	public List<ComercioEntity> getAll() {
-		return comercioRepository.findAll();
+	public ResponseDTO getAll() {
+		return new ResponseDTO(mapperComercio.listEntityToDto(comercioRepository.findAll()), true, "ok", HttpStatus.OK); 
 	}
 
 	//@Override
@@ -83,10 +88,20 @@ public class ComercioService implements IComercioService{
 		
 	}
 
-	@Override
-	public ComercioEntity updateComercio(ComercioEntity comercioEntity) {
+	//@Override
+	//public ComercioEntity updateComercio(ComercioEntity comercioEntity) {
 		
-		return comercioRepository.save(comercioEntity);
+	//	return comercioRepository.save(comercioEntity);
+	//}
+	
+	@Override
+	public ResponseDTO updateComercio(ComerciosDTO comerciosDTO) {
+		
+		ComercioEntity comercioEntity = mapperComercio.dtoToEntity(comerciosDTO);
+		
+		comercioRepository.save(comercioEntity);
+		
+		return new ResponseDTO(mapperComercio.entityToDto(comercioEntity), true, "comercio actualizado correctamente", HttpStatus.OK);
 	}
 
 	//@Override

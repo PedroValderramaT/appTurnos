@@ -8,7 +8,9 @@ import com.asesoftware.semilla.turnos.entity.ComercioEntity;
 
 public interface IComercioService {
 	
-	public List<ComercioEntity> getAll();
+	//public List<ComercioEntity> getAll();
+	
+	public ResponseDTO getAll();
 	
 	//public ComercioEntity getComercioById(Integer id);
 	
@@ -20,7 +22,9 @@ public interface IComercioService {
 	
 	public ResponseDTO createComercio(ComerciosDTO comerciosDTO);
 	
-	public ComercioEntity updateComercio(ComercioEntity comercioEntity);
+	//public ComercioEntity updateComercio(ComercioEntity comercioEntity);
+	
+	public ResponseDTO updateComercio(ComerciosDTO comerciosDTO);
 	
 	//public void deleteComercio(Integer id);
 	

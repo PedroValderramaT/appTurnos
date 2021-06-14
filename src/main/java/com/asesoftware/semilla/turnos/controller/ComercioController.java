@@ -25,8 +25,13 @@ public class ComercioController {
 	
 	//listar todos
 	
+	//@GetMapping(path = "/all")
+	//public List<ComercioEntity> getAll(){
+	//	return comercioService.getAll();
+	//}
+	
 	@GetMapping(path = "/all")
-	public List<ComercioEntity> getAll(){
+	public ResponseDTO getAll(){
 		return comercioService.getAll();
 	}
 	
@@ -70,8 +75,13 @@ public class ComercioController {
 	}
 	
 	//editar comercio
+	//@PostMapping(path = "/editar", consumes = "application/json", produces = "application/json")
+	//public ComercioEntity updateComercio(@RequestBody ComercioEntity entity) {
+	//	return comercioService.updateComercio(entity);
+	//} 
+	
 	@PostMapping(path = "/editar", consumes = "application/json", produces = "application/json")
-	public ComercioEntity updateComercio(@RequestBody ComercioEntity entity) {
+	public ResponseDTO updateComercio(@RequestBody ComerciosDTO entity) {
 		return comercioService.updateComercio(entity);
 	} 
 	
