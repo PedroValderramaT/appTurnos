@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import com.asesoftware.semilla.turnos.dto.ComerciosDTO;
 import com.asesoftware.semilla.turnos.dto.ResponseDTO;
 import com.asesoftware.semilla.turnos.entity.ComercioEntity;
+import com.asesoftware.semilla.turnos.mapper.IComercioMapper;
 import com.asesoftware.semilla.turnos.repository.IComercioRepository;
 
 @Service
@@ -16,6 +18,9 @@ public class ComercioService implements IComercioService{
 	
 	@Autowired
 	private IComercioRepository comercioRepository;
+	
+	@Autowired
+	private IComercioMapper mapperComercio;
 
 	@Override
 	public List<ComercioEntity> getAll() {
@@ -54,11 +59,24 @@ public class ComercioService implements IComercioService{
 	//}
 	
 	
+	//@Override
+	//public ResponseDTO createComercio(ComercioEntity comercioEntity) {
+	//	try {
+	//		comercioRepository.save(comercioEntity);
+	//		return new ResponseDTO(comercioEntity, true, "comercio creado correctamente", HttpStatus.OK);
+	//	}catch(Exception e) {
+	//		return new ResponseDTO(null, false, "el comercio no puede ser creado", HttpStatus.OK);
+	//	}
+	//	
+	//}
+	
 	@Override
-	public ResponseDTO createComercio(ComercioEntity comercioEntity) {
+	public ResponseDTO createComercio(ComerciosDTO comerciosDTO) {
 		try {
+			
+			ComercioEntity comercioEntity = mapperComercio.dtoToEntity(comerciosDTO);
 			comercioRepository.save(comercioEntity);
-			return new ResponseDTO(comercioEntity, true, "comercio creado correctamente", HttpStatus.OK);
+			return new ResponseDTO(mapperComercio.entityToDto(comercioEntity), true, "comercio creado correctamente", HttpStatus.OK);
 		}catch(Exception e) {
 			return new ResponseDTO(null, false, "el comercio no puede ser creado", HttpStatus.OK);
 		}

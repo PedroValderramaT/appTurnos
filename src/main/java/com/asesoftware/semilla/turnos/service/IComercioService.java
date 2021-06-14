@@ -2,6 +2,7 @@ package com.asesoftware.semilla.turnos.service;
 
 import java.util.List;
 
+import com.asesoftware.semilla.turnos.dto.ComerciosDTO;
 import com.asesoftware.semilla.turnos.dto.ResponseDTO;
 import com.asesoftware.semilla.turnos.entity.ComercioEntity;
 
@@ -15,7 +16,9 @@ public interface IComercioService {
 	
 	//public ComercioEntity createComercio(ComercioEntity comercioEntity);
 	
-	public ResponseDTO createComercio(ComercioEntity comercioEntity);
+	//public ResponseDTO createComercio(ComercioEntity comercioEntity);
+	
+	public ResponseDTO createComercio(ComerciosDTO comerciosDTO);
 	
 	public ComercioEntity updateComercio(ComercioEntity comercioEntity);
 	

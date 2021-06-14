@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.asesoftware.semilla.turnos.dto.ComerciosDTO;
 import com.asesoftware.semilla.turnos.dto.ResponseDTO;
 import com.asesoftware.semilla.turnos.entity.ComercioEntity;
 import com.asesoftware.semilla.turnos.service.IComercioService;
@@ -58,8 +59,13 @@ public class ComercioController {
 	//	return comercioService.createComercio(entity);
 	//} 
 	
+	//@PostMapping(path = "/crear", consumes = "application/json", produces = "application/json")
+	//public ResponseDTO createComercio(@RequestBody ComercioEntity entity) {
+	//	return comercioService.createComercio(entity);
+	//}
+	
 	@PostMapping(path = "/crear", consumes = "application/json", produces = "application/json")
-	public ResponseDTO createComercio(@RequestBody ComercioEntity entity) {
+	public ResponseDTO createComercio(@RequestBody ComerciosDTO entity) {
 		return comercioService.createComercio(entity);
 	}
 	
