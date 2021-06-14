@@ -30,17 +30,11 @@ public class ServicioController {
 	
 	//listar servicio por id
 	@GetMapping(path = "/servicio/{id}")
-	public ServiciosEntity getServicioById(@PathVariable Integer id) {
+	public ResponseDTO getServicioById(@PathVariable Integer id) {
 		return servicioService.getServicioById(id);
 	}
 	
 	//creacion servicio
-	//@PostMapping(path = "/crear", consumes = "application/json", produces = "application/json" )
-	//public ServiciosEntity createServicio(@RequestBody ServiciosEntity entity) {
-	//	return servicioService.createServicio(entity);
-	//}
-	
-	//creacion servicio con dto
 	@PostMapping(path = "/crear", consumes = "application/json", produces = "application/json" )
 	public ServiciosDTO createServicio(@RequestBody ServiciosDTO dto) {
 		return servicioService.createServicio(dto);

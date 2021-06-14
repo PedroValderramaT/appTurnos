@@ -11,9 +11,8 @@ public interface IServicioService {
 	
 	public ResponseDTO getAll();
 	
-	public ServiciosEntity getServicioById(Integer id);
+	public ResponseDTO getServicioById(Integer id);
 	
-	//public ServiciosEntity createServicio(ServiciosEntity serviciosEntity);
 	
 	public ServiciosEntity updateServicio(ServiciosEntity serviciosEntity);
 	

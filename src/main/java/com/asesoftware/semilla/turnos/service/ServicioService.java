@@ -30,23 +30,14 @@ public class ServicioService implements IServicioService{
 	}
 
 	@Override
-	public ServiciosEntity getServicioById(Integer id) {
+	public ResponseDTO getServicioById(Integer id) {
 		Optional<ServiciosEntity> optional = servicioRepository.findById(id);
 		if(optional.isPresent()) {
-			return optional.get();
+			return new ResponseDTO(optional.get(), true, "ok", HttpStatus.OK);
 		}else {
-			return null;
+			return new ResponseDTO(null, false, "servicio no encontrado", HttpStatus.OK);
 		}
 	}
-	
-	//@Override
-	//public ServiciosEntity createServicio(ServiciosEntity serviciosEntity) {
-	//		try {
-	//		return servicioRepository.save(serviciosEntity);
-	//	} catch (Exception e) {
-	//		return null;
-	//	}
-	//}
 	
 	@Override
 	public ServiciosDTO createServicio(ServiciosDTO serviciosDTO) {
