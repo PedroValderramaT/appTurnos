@@ -40,11 +40,16 @@ public class ServicioService implements IServicioService{
 	}
 	
 	@Override
-	public ServiciosDTO createServicio(ServiciosDTO serviciosDTO) {
-		
+	public ResponseDTO createServicio(ServiciosDTO serviciosDTO) {
+		try {
 		ServiciosEntity serviciosEntity = mapperServicio.dtoToEntity(serviciosDTO); 
+		
+		servicioRepository.save(serviciosEntity);
 	
-		return mapperServicio.entityToDTO(servicioRepository.save(serviciosEntity));
+		return new ResponseDTO(mapperServicio.entityToDTO(serviciosEntity), true, "servicio creado correctamente", HttpStatus.OK);
+		} catch(Exception e) {
+			return new ResponseDTO(null, false, "servicio no puede ser creado", HttpStatus.OK);
+		}
 	}
 	
 	
@@ -59,16 +64,13 @@ public class ServicioService implements IServicioService{
 	}
 
 	@Override
-	public void deleteServicio(Integer id) {
+	public ResponseDTO deleteServicio(Integer id) {
+		try {
 		servicioRepository.deleteById(id);
-		
-	}
-
-	@Override
-	public ServiciosDTO buscarPorId(Integer id) {
-		// TODO Auto-generated method stub
-		Optional<ServiciosEntity> serviciosEntity = servicioRepository.findById(id); 
-		return mapperServicio.entityToDTO(serviciosEntity.get());
+		return new ResponseDTO(null, true, "servicio eliminado", HttpStatus.OK);
+		}catch (Exception e) {
+		return new ResponseDTO(null, false, "servicio no existe", HttpStatus.OK);
+		}
 	}
 
 	

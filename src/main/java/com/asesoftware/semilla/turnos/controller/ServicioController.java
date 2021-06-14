@@ -35,7 +35,7 @@ public class ServicioController {
 	
 	//creacion servicio
 	@PostMapping(path = "/crear", consumes = "application/json", produces = "application/json" )
-	public ServiciosDTO createServicio(@RequestBody ServiciosDTO dto) {
+	public ResponseDTO createServicio(@RequestBody ServiciosDTO dto) {
 		return servicioService.createServicio(dto);
 	}
 	
@@ -47,16 +47,10 @@ public class ServicioController {
 	
 	//eliminar servicio
 	@GetMapping(path = "/delete/{id}")
-	public void deleteServicio(@PathVariable Integer id) {
-		servicioService.deleteServicio(id);
+	public ResponseDTO deleteServicio(@PathVariable Integer id) {
+		return servicioService.deleteServicio(id);
 	}
-	
-	//buscar servicio por id consultando el DTO
-	@GetMapping(path = "/{id}")
-	public ServiciosDTO buscarPorId(@PathVariable Integer id) {
-		return servicioService.buscarPorId(id);
-	}
-	
+		
 	
 	
 	
