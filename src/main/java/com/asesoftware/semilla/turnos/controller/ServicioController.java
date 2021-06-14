@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.asesoftware.semilla.turnos.dto.ResponseDTO;
 import com.asesoftware.semilla.turnos.dto.ServiciosDTO;
 import com.asesoftware.semilla.turnos.entity.ServiciosEntity;
 import com.asesoftware.semilla.turnos.service.IServicioService;
@@ -23,7 +24,7 @@ public class ServicioController {
 	
 	//listar servicios
 	@GetMapping(path = "/todos")
-	public List<ServiciosEntity> consultarTodosServicios(){
+	public ResponseDTO consultarTodosServicios(){
 		return servicioService.getAll();
 	}
 	

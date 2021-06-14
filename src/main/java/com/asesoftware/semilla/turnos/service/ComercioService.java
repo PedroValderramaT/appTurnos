@@ -21,26 +21,11 @@ public class ComercioService implements IComercioService{
 	
 	@Autowired
 	private IComercioMapper mapperComercio;
-
-	//@Override
-	//public List<ComercioEntity> getAll() {
-	//	return comercioRepository.findAll();
-	//}
 	
 	@Override
 	public ResponseDTO getAll() {
 		return new ResponseDTO(mapperComercio.listEntityToDto(comercioRepository.findAll()), true, "ok", HttpStatus.OK); 
 	}
-
-	//@Override
-	//public ComercioEntity getComercioById(Integer id) {
-	//	Optional<ComercioEntity> optional = comercioRepository.findById(id);
-	//	if(optional.isPresent()) {
-	//		return optional.get();
-	//	}else {
-	//		return null;
-	//	}
-	//}
 	
 	@Override
 	public ResponseDTO getComercioById(Integer id) {
@@ -53,32 +38,11 @@ public class ComercioService implements IComercioService{
 		}
 	}
 
-	//@Override
-	//public ComercioEntity createComercio(ComercioEntity comercioEntity) {
-	//	try {
-	//		return comercioRepository.save(comercioEntity);
-	//	}catch(Exception e) {
-	//		return null;
-	//	}
-	//	
-	//}
-	
-	
-	//@Override
-	//public ResponseDTO createComercio(ComercioEntity comercioEntity) {
-	//	try {
-	//		comercioRepository.save(comercioEntity);
-	//		return new ResponseDTO(comercioEntity, true, "comercio creado correctamente", HttpStatus.OK);
-	//	}catch(Exception e) {
-	//		return new ResponseDTO(null, false, "el comercio no puede ser creado", HttpStatus.OK);
-	//	}
-	//	
-	//}
+
 	
 	@Override
 	public ResponseDTO createComercio(ComerciosDTO comerciosDTO) {
-		try {
-			
+		try {			
 			ComercioEntity comercioEntity = mapperComercio.dtoToEntity(comerciosDTO);
 			comercioRepository.save(comercioEntity);
 			return new ResponseDTO(mapperComercio.entityToDto(comercioEntity), true, "comercio creado correctamente", HttpStatus.OK);
@@ -87,12 +51,6 @@ public class ComercioService implements IComercioService{
 		}
 		
 	}
-
-	//@Override
-	//public ComercioEntity updateComercio(ComercioEntity comercioEntity) {
-		
-	//	return comercioRepository.save(comercioEntity);
-	//}
 	
 	@Override
 	public ResponseDTO updateComercio(ComerciosDTO comerciosDTO) {
@@ -104,11 +62,6 @@ public class ComercioService implements IComercioService{
 		return new ResponseDTO(mapperComercio.entityToDto(comercioEntity), true, "comercio actualizado correctamente", HttpStatus.OK);
 	}
 
-	//@Override
-	//public void deleteComercio(Integer id) {
-	//	
-	//	comercioRepository.deleteById(id);
-	//}
 	
 	@Override
 	public ResponseDTO deleteComercio(Integer id) {
