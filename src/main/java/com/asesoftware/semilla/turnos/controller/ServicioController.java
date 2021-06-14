@@ -1,6 +1,5 @@
 package com.asesoftware.semilla.turnos.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.asesoftware.semilla.turnos.dto.ResponseDTO;
 import com.asesoftware.semilla.turnos.dto.ServiciosDTO;
-import com.asesoftware.semilla.turnos.entity.ServiciosEntity;
+
 import com.asesoftware.semilla.turnos.service.IServicioService;
 
 @RestController
@@ -42,7 +41,7 @@ public class ServicioController {
 	
 	//editar servicio
 	@PostMapping(path = "/editar", consumes = "application/json", produces = "application/json" )
-	public ServiciosEntity updateServicio(@RequestBody ServiciosEntity entity) {
+	public ResponseDTO updateServicio(@RequestBody ServiciosDTO entity) {
 		return servicioService.updateServicio(entity);
 	}
 	

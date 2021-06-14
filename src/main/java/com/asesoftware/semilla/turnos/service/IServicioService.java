@@ -14,7 +14,7 @@ public interface IServicioService {
 	public ResponseDTO getServicioById(Integer id);
 	
 	
-	public ServiciosEntity updateServicio(ServiciosEntity serviciosEntity);
+	public ResponseDTO updateServicio(ServiciosDTO serviciosDTO);
 	
 	public void deleteServicio(Integer id);
 		

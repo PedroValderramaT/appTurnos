@@ -1,6 +1,6 @@
 package com.asesoftware.semilla.turnos.service;
 
-import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +49,13 @@ public class ServicioService implements IServicioService{
 	
 	
 	@Override
-	public ServiciosEntity updateServicio(ServiciosEntity serviciosEntity) {
-		return servicioRepository.save(serviciosEntity);
+	public ResponseDTO updateServicio(ServiciosDTO serviciosDTO) {
+		
+		ServiciosEntity serviciosEntity = mapperServicio.dtoToEntity(serviciosDTO);
+		
+		servicioRepository.save(serviciosEntity);
+		
+		return new ResponseDTO(mapperServicio.entityToDTO(serviciosEntity), true, "servicio actualizado", HttpStatus.OK);
 	}
 
 	@Override
