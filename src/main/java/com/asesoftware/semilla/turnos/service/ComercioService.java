@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import com.asesoftware.semilla.turnos.dto.ResponseDTO;
 import com.asesoftware.semilla.turnos.entity.ComercioEntity;
 import com.asesoftware.semilla.turnos.repository.IComercioRepository;
 
@@ -20,13 +22,24 @@ public class ComercioService implements IComercioService{
 		return comercioRepository.findAll();
 	}
 
+	//@Override
+	//public ComercioEntity getComercioById(Integer id) {
+	//	Optional<ComercioEntity> optional = comercioRepository.findById(id);
+	//	if(optional.isPresent()) {
+	//		return optional.get();
+	//	}else {
+	//		return null;
+	//	}
+	//}
+	
 	@Override
-	public ComercioEntity getComercioById(Integer id) {
+	public ResponseDTO getComercioById(Integer id) {
 		Optional<ComercioEntity> optional = comercioRepository.findById(id);
+		
 		if(optional.isPresent()) {
-			return optional.get();
+			return new ResponseDTO(optional.get(), true, "ok", HttpStatus.OK);
 		}else {
-			return null;
+			return new ResponseDTO(null, false, "comercio no encontrado", HttpStatus.OK);
 		}
 	}
 

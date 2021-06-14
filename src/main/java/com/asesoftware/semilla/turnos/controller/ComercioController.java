@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.asesoftware.semilla.turnos.dto.ResponseDTO;
 import com.asesoftware.semilla.turnos.entity.ComercioEntity;
 import com.asesoftware.semilla.turnos.service.IComercioService;
 
@@ -29,16 +30,27 @@ public class ComercioController {
 	}
 	
 	//listar comercio por id
+	//@GetMapping(path = "/comercio/{id}")
+	//public ComercioEntity getComercioById(@PathVariable Integer id) {
+	//	return comercioService.getComercioById(id);
+	//}
+	
 	@GetMapping(path = "/comercio/{id}")
-	public ComercioEntity getComercioById(@PathVariable Integer id) {
+	public ResponseDTO getComercioById(@PathVariable Integer id) {
 		return comercioService.getComercioById(id);
 	}
 	
 	//mostrar por parametro id
+	//@GetMapping(path = "/comercio")
+	//public ComercioEntity getComercioParametroById(@RequestParam Integer id) {
+	//	return comercioService.getComercioById(id);
+	//}
+	
 	@GetMapping(path = "/comercio")
-	public ComercioEntity getComercioParametroById(@RequestParam Integer id) {
+	public ResponseDTO getComercioParametroById(@RequestParam Integer id) {
 		return comercioService.getComercioById(id);
 	}
+	
 	
 	//crear comercio
 	@PostMapping(path = "/crear", consumes = "application/json", produces = "application/json")
