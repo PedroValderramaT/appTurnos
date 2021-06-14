@@ -17,6 +17,9 @@ public interface IComercioService {
 	
 	public ComercioEntity updateComercio(ComercioEntity comercioEntity);
 	
-	public void deleteComercio(Integer id);
+	//public void deleteComercio(Integer id);
+	
+	public ResponseDTO deleteComercio(Integer id);
+
 
 }

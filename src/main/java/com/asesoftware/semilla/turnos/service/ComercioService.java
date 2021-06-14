@@ -59,10 +59,22 @@ public class ComercioService implements IComercioService{
 		return comercioRepository.save(comercioEntity);
 	}
 
+	//@Override
+	//public void deleteComercio(Integer id) {
+	//	
+	//	comercioRepository.deleteById(id);
+	//}
+	
 	@Override
-	public void deleteComercio(Integer id) {
+	public ResponseDTO deleteComercio(Integer id) {
 		
-		comercioRepository.deleteById(id);
+		try {
+			comercioRepository.deleteById(id);
+			return new ResponseDTO(null, true, "comercio eliminado", HttpStatus.OK);
+		}catch (Exception e) {
+			return new ResponseDTO(null, false, "comercio no existe", HttpStatus.OK);
+		}
+		
 	}
 
 }

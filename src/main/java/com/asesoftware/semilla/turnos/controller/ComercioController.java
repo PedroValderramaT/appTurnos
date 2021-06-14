@@ -65,9 +65,14 @@ public class ComercioController {
 	} 
 	
 	//eliminar comercio
+	//@GetMapping(path = "/delete/{id}")
+	//public void deleteComercio(@PathVariable Integer id) {
+	//	comercioService.deleteComercio(id);
+	//}
+	
 	@GetMapping(path = "/delete/{id}")
-	public void deleteComercio(@PathVariable Integer id) {
-		comercioService.deleteComercio(id);
+	public ResponseDTO deleteComercio(@PathVariable Integer id) {
+		return comercioService.deleteComercio(id);
 	}
 	
 }
