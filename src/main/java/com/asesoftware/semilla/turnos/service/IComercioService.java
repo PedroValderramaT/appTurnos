@@ -13,7 +13,9 @@ public interface IComercioService {
 	
 	public ResponseDTO getComercioById(Integer id);
 	
-	public ComercioEntity createComercio(ComercioEntity comercioEntity);
+	//public ComercioEntity createComercio(ComercioEntity comercioEntity);
+	
+	public ResponseDTO createComercio(ComercioEntity comercioEntity);
 	
 	public ComercioEntity updateComercio(ComercioEntity comercioEntity);
 	

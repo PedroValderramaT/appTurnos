@@ -43,12 +43,24 @@ public class ComercioService implements IComercioService{
 		}
 	}
 
+	//@Override
+	//public ComercioEntity createComercio(ComercioEntity comercioEntity) {
+	//	try {
+	//		return comercioRepository.save(comercioEntity);
+	//	}catch(Exception e) {
+	//		return null;
+	//	}
+	//	
+	//}
+	
+	
 	@Override
-	public ComercioEntity createComercio(ComercioEntity comercioEntity) {
+	public ResponseDTO createComercio(ComercioEntity comercioEntity) {
 		try {
-			return comercioRepository.save(comercioEntity);
+			comercioRepository.save(comercioEntity);
+			return new ResponseDTO(comercioEntity, true, "comercio creado correctamente", HttpStatus.OK);
 		}catch(Exception e) {
-			return null;
+			return new ResponseDTO(null, false, "el comercio no puede ser creado", HttpStatus.OK);
 		}
 		
 	}

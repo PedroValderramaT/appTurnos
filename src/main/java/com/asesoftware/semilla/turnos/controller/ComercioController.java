@@ -53,10 +53,15 @@ public class ComercioController {
 	
 	
 	//crear comercio
+	//@PostMapping(path = "/crear", consumes = "application/json", produces = "application/json")
+	//public ComercioEntity createComercio(@RequestBody ComercioEntity entity) {
+	//	return comercioService.createComercio(entity);
+	//} 
+	
 	@PostMapping(path = "/crear", consumes = "application/json", produces = "application/json")
-	public ComercioEntity createComercio(@RequestBody ComercioEntity entity) {
+	public ResponseDTO createComercio(@RequestBody ComercioEntity entity) {
 		return comercioService.createComercio(entity);
-	} 
+	}
 	
 	//editar comercio
 	@PostMapping(path = "/editar", consumes = "application/json", produces = "application/json")
