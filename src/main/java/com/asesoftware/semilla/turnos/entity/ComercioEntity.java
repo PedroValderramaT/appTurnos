@@ -23,10 +23,10 @@ public class ComercioEntity {
 	private Integer id;
 	
 	@Column(name = "nom_comercio")
-	private String nombre_comercio;	
+	private String nombreComercio;	
 	
 	@Column(name = "aforo_maximo")
-	private Integer aforo_max;
+	private Integer aforoMax;
 	
 	@OneToMany(mappedBy = "idComercio")
 	private List<ServiciosEntity> servicios;

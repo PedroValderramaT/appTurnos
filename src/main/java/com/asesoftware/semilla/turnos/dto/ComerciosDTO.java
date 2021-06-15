@@ -9,9 +9,9 @@ public class ComerciosDTO {
 		
 	private Integer id;
 		
-	private String nombre_comercio;	
+	private String nombreComercio;	
 	
-	private Integer aforo_max;
+	private Integer aforoMax;
 	
 	private List<ServiciosDTO> servicios;
 

@@ -5,16 +5,16 @@ import lombok.Data;
 @Data
 public class ServiciosDTO {
 	
-	private Integer identificador;
+	private Integer id;
 		
-	private String servicio;
+	private String nombreServicio;
 		
-	private String apertura;
+	private String horaApertura;
 		
-	private String cierre;
+	private String horaCierre;
 		
-	private Integer identificadorComercio;
+	private Integer idComercio;
 		
-	private Integer duracion;
+	private Integer duracionServicio;
 
 }
