@@ -7,11 +7,11 @@ import lombok.Data;
 @Data
 public class ComerciosDTO {
 		
-	private Integer id;
+	private Integer identificador;
 		
-	private String nombreComercio;	
+	private String nombre;	
 	
-	private Integer aforoMax;
+	private Integer aforoMaximo;
 	
 	private List<ServiciosDTO> servicios;
 
