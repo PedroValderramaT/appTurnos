@@ -37,7 +37,7 @@ public class ComercioService implements IComercioService{
 	@Override
 	public ResponseDTO getComercioById(Integer id) {
 		
-		logger.info("ingreso al metodo getComerciobyId");
+		logger.info("ingreso al metodo getComercioById");
 		
 		Optional<ComercioEntity> optional = comercioRepository.findById(id);
 		
@@ -56,7 +56,7 @@ public class ComercioService implements IComercioService{
 	@Override
 	public ResponseDTO createComercio(ComerciosDTO comerciosDTO) {
 		
-		logger.info("ingreso al metodo CreateComercio");
+		logger.info("ingreso al metodo createComercio");
 		
 		try {			
 			ComercioEntity comercioEntity = mapperComercio.dtoToEntity(comerciosDTO);
